@@ -11,8 +11,6 @@ $error = "";
 if (isset($_POST['login'])) {
     $username = trim($_POST['username']);
     $password = trim($_POST['password']);
-
-    // prepare
     $stmt = $conn->prepare("SELECT id, username, password FROM users WHERE username = ?");
     if (!$stmt) {
         $error = "Prepare failed: " . $conn->error;
@@ -23,14 +21,9 @@ if (isset($_POST['login'])) {
             $error = "Execute failed: " . $stmt->error;
         } else {
             $stmt->store_result();
-            // ada user?
             if ($stmt->num_rows === 1) {
                 $stmt->bind_result($id, $db_username, $db_password);
                 $stmt->fetch();
-
-                // debug (bisa di-comment kalau sudah yakin)
-                // echo "<pre>DB username: {$db_username}\nDB pass (hash): {$db_password}</pre>";
-
                 if (password_verify($password, $db_password)) {
                     $_SESSION['username'] = $db_username;
                     header("Location: index.php");
@@ -80,3 +73,4 @@ if (isset($_POST['login'])) {
   </div>
 </body>
 </html>
+
