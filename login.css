@@ -84,5 +84,6 @@ button:hover {
     margin: 0;
 }
 .login-box {
-    margin-top: 80px; /* biar nggak nempel sama navbar */
+    margin-top: 80px;
 }
+
