@@ -64,7 +64,7 @@ button:hover {
 
 /* Navbar */
 .navbar {
-    background: #2563eb; /* biru */
+    background: #2563eb;
     padding: 15px 20px;
     box-shadow: 0px 3px 10px rgba(0,0,0,0.1);
     position: fixed;
@@ -84,5 +84,6 @@ button:hover {
     margin: 0;
 }
 .login-box {
-    margin-top: 80px; /* biar nggak nempel sama navbar */
+    margin-top: 80px;
 }
+
